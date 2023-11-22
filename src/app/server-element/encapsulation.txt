@@ -1,1 +1,3 @@
 In view encapsulation all the components have thier separate "own" attributes.Thats y the styling applied in tha app component has no effect on the elements in the server element component.The property of shadow dom is applied where each component has its own unique attribute. The shadow dom property runs in the background
+
+If we use encapsulation in ts file and assign it to the value ViewEncapsulation.none , all the styles applied in that component gets implemented globally.In ViewEncapsulation.Native it acts as shadow dom only but restricted to certain browser and ViewEncapsulation.Emulated is choosed as default where it uses shadown dom property where styles applied in one component does not affect other component.
