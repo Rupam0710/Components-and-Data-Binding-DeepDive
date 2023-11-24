@@ -18,13 +18,27 @@
         [srvElement]="serverElement"
         [name]="serverElement.name"
       >
-        <p>
-          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
+        <p #contentParagraph>
+          <!-- <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
             serverElement.content
           }}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{
             serverElement.content
-          }}</em>
+          }}</em> -->
+
+          <!-- This error occurs when you're trying to target an element that is wrapped in a condition.
+
+So, here if I use ngIf in place of [hidden], it will give me TypeError: Cannot read property 'nativeElement' of undefined
+
+So use [hidden], class.show or class.hide in place of *ngIf. -->
+
+          <strong
+            [ngStyle]="{
+              color: serverElement.type === 'server' ? 'red' : 'blue'
+            }"
+          >
+            {{ serverElement.content }}
+          </strong>
         </p>
       </app-server-element>
     </div>
